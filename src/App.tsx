@@ -1,26 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Card from "./components/Card";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <Card width="400px" height="400px">
+        <button>Hello</button>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid necessitatibus nemo incidunt dolores quia commodi inventore? In aperiam animi excepturi numquam amet dolore fuga, repellendus necessitatibus possimus, sint harum error.</p>
+      </Card>
     </div>
   );
-}
-
-export default App;
+};
