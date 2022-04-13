@@ -15,7 +15,7 @@ export default function App() {
       <Btn
         bg="tomato"
         onClick={(num) => {
-          console.log('num :>> ', num);
+          console.log('num :>> ', num); 
         }}
       >
         ClickMe
