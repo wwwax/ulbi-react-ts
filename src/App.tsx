@@ -1,13 +1,25 @@
 import Card from "./components/Card";
+import User from './components/User';
+import { v4 as uuidv4 } from 'uuid';
+import Btn from './components/Btn';
 
 export default function App() {
   return (
     <div>
-
-      <Card width="400px" height="400px">
-        <button>Hello</button>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid necessitatibus nemo incidunt dolores quia commodi inventore? In aperiam animi excepturi numquam amet dolore fuga, repellendus necessitatibus possimus, sint harum error.</p>
+      <Card width="100px" height="100px">
+        <div>Hello</div>
       </Card>
+
+      <User id={uuidv4()} name="Adam" age={33} married={true} />
+
+      <Btn
+        bg="tomato"
+        onClick={(num) => {
+          console.log('num :>> ', num);
+        }}
+      >
+        ClickMe
+      </Btn>
     </div>
   );
 };
