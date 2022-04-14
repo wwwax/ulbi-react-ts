@@ -1,25 +1,43 @@
-import Card from "./components/Card";
-import User from './components/User';
-import { v4 as uuidv4 } from 'uuid';
-import Btn from './components/Btn';
+import UserList from "./components/UserList";
+import { IUser } from "./types/types";
 
 export default function App() {
+  const users: IUser[] = [
+    {
+      id: 1,
+      name: "Adam",
+      email: "adam@mail.com",
+      address: {
+        street: "Legockogo",
+        city: "Uzhhorod",
+        zipcode: "2800",
+      }
+    },
+    {
+      id: 2,
+      name: "Carl",
+      email: "carl@mail.com",
+      address: {
+        street: "Tlekhasa",
+        city: "Uzhhorod",
+        zipcode: "2800",
+      }
+    },
+    {
+      id: 3,
+      name: "David",
+      email: "dav@mail.com",
+      address: {
+        street: "Halana",
+        city: "Uzhhorod",
+        zipcode: "2800",
+      }
+    }
+  ];
+
   return (
     <div>
-      <Card width="100px" height="100px">
-        <div>Hello</div>
-      </Card>
-
-      <User id={uuidv4()} name="Adam" age={33} married={true} />
-
-      <Btn
-        bg="tomato"
-        onClick={(num) => {
-          console.log('num :>> ', num); 
-        }}
-      >
-        ClickMe
-      </Btn>
+      <UserList users={users} />
     </div>
   );
 };
