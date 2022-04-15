@@ -1,16 +1,16 @@
-import React, { FC, useState, ChangeEvent, MouseEvent, DragEvent } from "react";
+import { FC, useState, ChangeEvent, MouseEvent, DragEvent, useRef } from "react";
 
 const EventsExample: FC = () => {
   const [value, setValue] = useState<string>("");
   const [isDrag, setIsDrag] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   function changeHandler(e: ChangeEvent<HTMLInputElement>) {
     setValue(e.target.value);
   }
 
   function clickHandler(e: MouseEvent<HTMLButtonElement>) {
-    console.log('value :>> ', value);
-    setValue("");
+    console.log('inputRef.current :>> ', inputRef.current?.value);
   }
 
   function dragHandler(e: DragEvent<HTMLDivElement>) {
@@ -43,7 +43,14 @@ const EventsExample: FC = () => {
           type="text"
           value={value}
           onChange={changeHandler}
-          placeholder="type here..."
+          placeholder="controlled..."
+        />
+
+        <input
+          className="border-4 border-gray-500 mb-2 p-4"
+          type="text"
+          placeholder="uncontrolled..."
+          ref={inputRef}
         />
 
         <button
@@ -63,7 +70,7 @@ const EventsExample: FC = () => {
           onDrop={dropHandler}
           onDragLeave={leaveHandler}
           onDragOver={overHandler}
-          style={{ background: isDrag ? "green" : "red" }}
+          style={{ background: isDrag ? "blue" : "red" }}
         ></div>
       </div>
     </div>
